@@ -997,7 +997,7 @@ bool UnwrappedLineParser::tryToParseLambda() {
     nextToken();
     return false;
   }
-  const FormatToken* Previous = getPreviousToken();
+  const FormatToken *Previous = getPreviousToken();
   if (Previous &&
       (Previous->isOneOf(tok::identifier, tok::kw_operator, tok::kw_new,
                          tok::kw_delete) ||

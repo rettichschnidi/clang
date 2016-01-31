@@ -226,7 +226,8 @@ struct FormatStyle {
     /// Like ``Attach``, but break before braces on enum, function, and record
     /// definitions.
     BS_Mozilla,
-    /// Like \c Attach, but break before function definitions, 'catch', and 'else'.
+    /// Like \c Attach, but break before function definitions, 'catch', and
+    /// 'else'.
     BS_Stroustrup,
     /// Always break before braces.
     BS_Allman,
