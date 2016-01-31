@@ -46,6 +46,8 @@ struct UnwrappedLine {
   /// \brief Whether this \c UnwrappedLine is part of a preprocessor directive.
   bool InPPDirective;
 
+  bool IsPPDefine;
+
   bool MustBeDeclaration;
 };
 

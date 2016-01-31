@@ -599,6 +599,7 @@ void UnwrappedLineParser::parsePPEndIf() {
 }
 
 void UnwrappedLineParser::parsePPDefine() {
+  Line->IsPPDefine = true;
   nextToken();
 
   if (FormatTok->Tok.getKind() != tok::identifier) {
@@ -1858,6 +1859,11 @@ void UnwrappedLineParser::addUnwrappedLine() {
     if (CurrentLines == &Lines)
       printDebugInfo(*Line);
   });
+  if (Line->IsPPDefine && Style.KeepDefineFormatting) {
+    for (const UnwrappedLineNode &token : Line->Tokens) {
+      token.Tok->Finalized = true;
+    }
+  }
   CurrentLines->push_back(std::move(*Line));
   Line->Tokens.clear();
   if (CurrentLines == &Lines && !PreprocessorDirectives.empty()) {

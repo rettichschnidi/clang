@@ -414,6 +414,9 @@ struct FormatStyle {
   /// \brief If true, empty lines at the start of blocks are kept.
   bool KeepEmptyLinesAtTheStartOfBlocks;
 
+  /// \brief If true, do not format #defines.
+  bool KeepDefineFormatting;
+
   /// \brief Supported languages. When stored in a configuration file, specifies
   /// the language, that the configuration targets. When passed to the
   /// reformat() function, enables syntax features specific to the language.
@@ -638,6 +641,7 @@ struct FormatStyle {
            IndentWrappedFunctionNames == R.IndentWrappedFunctionNames &&
            KeepEmptyLinesAtTheStartOfBlocks ==
                R.KeepEmptyLinesAtTheStartOfBlocks &&
+           KeepDefineFormatting == R.KeepDefineFormatting &&
            MacroBlockBegin == R.MacroBlockBegin &&
            MacroBlockEnd == R.MacroBlockEnd &&
            MaxEmptyLinesToKeep == R.MaxEmptyLinesToKeep &&
